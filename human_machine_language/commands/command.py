@@ -1,5 +1,5 @@
 class Command(object):
-    def __init__(self, name="Command", txt="txt", line_num):
+    def __init__(self, name, txt, line_num):
         self.name = name
         self.txt = txt
         self.line_num = line_num
@@ -13,4 +13,4 @@ class Command(object):
     def report_error(self, code_instance, msg):
         code_instance.error = True
         code_instance.error_txt = msg
-        code_instance.error_line = line_num
+        code_instance.error_line = self.line_num

@@ -1,4 +1,4 @@
-from command import Command
+from commands.command import Command
 
 class JumpIf(Command):
     def __init__(self, text, line_num, line_num_jump, num1, num2, comp_type, num1_spec, num2_spec):
@@ -19,10 +19,10 @@ class JumpIf(Command):
     def complt(self, code_instance, n1, n2):
         return n1 < n2
 
-    def comgt(self, code_instance, n1, n2):
+    def compgt(self, code_instance, n1, n2):
         return n1 > n2
 
-    def comperror(self, code_instance):
+    def comperror(self, code_instance, n1, n2):
         self.report_error(code_instance, "INVALID COMPARISON TYPE")
         return False
 
@@ -53,8 +53,7 @@ class JumpIf(Command):
         }
         comp = switch.get(self.comp_type, lambda: self.comperror)
 
-
-        if(comp(code_instance, self.convNum(code_instance, self.num1, 1), self.convNum(code_instance, self.num2, 2)):
+        if(comp(code_instance, self.convNum(code_instance, self.num1, 1), self.convNum(code_instance, self.num2, 2))):
             self.jump(code_instance)
         else:
             code_instance.curr_line += 1

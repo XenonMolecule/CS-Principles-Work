@@ -1,4 +1,4 @@
-from command import Command
+from commands.command import Command
 
 class Move(Command):
     def __init__(self, text, line_num, right_side, position, pos_spec):
@@ -21,12 +21,12 @@ class Move(Command):
             return code_instance.seq[code_instance.rpos]
 
     def evaluate(self, code_instance):
-        position = self.convNum(code_instnce, self.position)
-        if self.position in range(len(code_instance.seq)):
+        position = self.convNum(code_instance, self.position)
+        if position in range(len(code_instance.seq)):
             if(self.right_side):
-                code_instance.rpos = self.position
+                code_instance.rpos = position
             else:
-                code_instance.lpos = self.position
+                code_instance.lpos = position
             code_instance.curr_line += 1
         else:
-            self.report_error(code_instance, "Index out of bounds of sequence: index=" + self.position)
+            self.report_error(code_instance, "Index out of bounds of sequence: index=" + str(position))

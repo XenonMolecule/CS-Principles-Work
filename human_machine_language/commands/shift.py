@@ -1,7 +1,7 @@
-from command import Command
+from commands.command import Command
 
 class Shift(Command):
-    def __init__(self, text, line_num,right_side, to_right):
+    def __init__(self, text, line_num, right_side, to_right):
         super(Shift, self).__init__("SHIFT", text, line_num)
         self.right_side = right_side
         self.to_right = to_right
@@ -23,4 +23,4 @@ class Shift(Command):
         if (new_val in range(len(code_instance.seq))):
             code_instance.curr_line += 1
         else:
-            self.report_error(code_instance, "Index out of bounds of sequence: index=" + new_val)
+            self.report_error(code_instance, "Index out of bounds of sequence: index=" + str(new_val))
