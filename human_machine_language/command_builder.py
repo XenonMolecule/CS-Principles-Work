@@ -37,7 +37,7 @@ class CodeBuilder(object):
             else:
                 num = -4
         else:
-            num1 = int(text)
+            num = int(text)
         return num, num_spec
 
     def build_jumpif(self, text, params, line_num):
@@ -95,7 +95,7 @@ class CodeBuilder(object):
         return self.build_error_msg(text, params, line_num, "Unrecognized command: " + str(params[0]))
 
     def build_error_msg(self, text, params, line_num, message):
-        return Error(text, line_num, message + "\n\t" + text)
+        return Error(text, line_num, message)
 
     def build_cmd(self, text, line_num):
         text = text.upper()

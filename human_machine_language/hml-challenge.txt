@@ -1,12 +1,13 @@
 MOVE RH TO POSITION 8
-MOVE LH TO POSITION 7
+MOVE LH TO POSITION 8
+SHIFT LH TO THE L
 JUMP TO LINE 8 IF LHCARD gt RHCARD # Found value that should be to the right of partition
 JUMP TO LINE 8 IF LHCARD eq RHCARD
-SHIFT LH TO THE L
 JUMP TO LINE 3 IF LHPOS ne 0 # still looking for greater value
 STOP
 SWAP
 MOVE RH TO POSITION LHPOS
 SHIFT LH TO THE R
 JUMP TO LINE 8 IF RHCARD gt LHCARD # Needs to keep moving cards right, because partition still has lower values to the right
-JUMP TO LINE 3 # Look for More cards just in case a lower value exists
+SHIFT LH TO THE L
+JUMP TO LINE 6 # Look for More cards just in case a lower value exists

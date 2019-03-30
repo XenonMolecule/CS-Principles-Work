@@ -23,4 +23,5 @@ class Shift(Command):
         if (new_val in range(len(code_instance.seq))):
             code_instance.curr_line += 1
         else:
-            self.report_error(code_instance, "Index out of bounds of sequence: index=" + str(new_val))
+            self.report_error(code_instance, "Index out of bounds of sequence: index=" +
+            str(new_val) + "\n\tLH: " + str(code_instance.lpos) + "\n\tRH: " + str(code_instance.rpos))
