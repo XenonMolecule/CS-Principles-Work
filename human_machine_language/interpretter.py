@@ -7,7 +7,7 @@ parser.add_argument("-V", "--verbose", help="enable verbose logging", action="st
 
 args = parser.parse_args()
 
-file = "/Users/MichaelRyan/Documents/GitHub/CS-Principles-Work/human_machine_language/challenges/hi-lo.txt" #sys.argv[0]
+file = "/Users/MichaelRyan/Documents/GitHub/CS-Principles-Work/human_machine_language/challenges/sort.txt" #sys.argv[0]
 code_string = []
 
 
