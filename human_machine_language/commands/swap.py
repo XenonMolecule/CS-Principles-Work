@@ -9,3 +9,4 @@ class Swap(Command):
         code_instance.seq[code_instance.lpos] = code_instance.seq[code_instance.rpos]
         code_instance.seq[code_instance.rpos] = temp
         code_instance.curr_line += 1
+        code_instance.swap_count += 1

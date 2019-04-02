@@ -52,6 +52,7 @@ class JumpIf(Command):
             3:self.compgt
         }
         comp = switch.get(self.comp_type, lambda: self.comperror)
+        code_instance.comp_count += 1
 
         if(comp(code_instance, self.convNum(code_instance, self.num1, 1), self.convNum(code_instance, self.num2, 2))):
             self.jump(code_instance)

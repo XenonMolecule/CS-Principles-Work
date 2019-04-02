@@ -27,12 +27,16 @@ class Code_Instance(object):
         self.error = False
         self.error_txt = ""
         self.error_line = 0
+        self.lines_run = 0
+        self.swap_count = 0
+        self.comp_count = 0
 
     def evaluate(self):
         self.compile()
         while(not self.stop and not self.error):
             if(self.curr_line < len(self.code) and self.curr_line > 0):
                 self.code[self.curr_line].evaluate(self)
+                self.lines_run += 1
                 if(self.verbose):
                     print("---")
                     print(str(self.curr_line) + ": " + self.code_string[self.curr_line])
@@ -58,20 +62,31 @@ class Code_Instance(object):
     def print_seq(self):
         print(self.seq_string())
 
-    def print_hands(self):
+    def hand_string(self):
         padding1 = ""
         padding2 = ""
         if(self.lpos == self.rpos):
             padding1 = " " * (self.lpos * 3)
-            print(padding1 + "LR")
+            return (padding1 + "LR")
         elif(self.lpos < self.rpos):
             padding1 = " " * (self.lpos * 3)
             padding2 = " " * (((self.rpos-self.lpos) * 3) - 2)
-            print(padding1 + "LH" + padding2 + "RH")
+            return (padding1 + "LH" + padding2 + "RH")
         else:
             padding1 = " " * (self.rpos * 3)
             padding2 = " " * (((self.lpos-self.rpos) * 3) - 2)
-            print(padding1 + "RH" + padding2 + "LH")
+            return (padding1 + "RH" + padding2 + "LH")
+
+    def print_hands(self):
+        print(self.hand_string())
+
+    def print_summary(self):
+        print("Code Execution Summary")
+        print("----------------------")
+        print("    Lines of Code: " + str(len(self.code)))
+        print("Lines of Code Run: " + str(self.lines_run))
+        print("  Comparisons Run: " + str(self.comp_count))
+        print("        Swaps Run: " + str(self.swap_count))
 
     def __str__(self):
         return "\n".join(code_string)
