@@ -55,10 +55,12 @@ class Code_Instance(object):
                     print(self.hand_hands())
 
             else:
-                print("---\nERROR: Line " + str(self.curr_line) + " is not in the program... did you forget to STOP?" + "\n---")
+                print("---\nERROR: Line " + str(self.curr_line) + " is not in " +
+                    "the program... did you forget to STOP?" + "\n---")
                 return
         if(self.error):
-            print("---\nERROR on Line " + str(self.error_line) + ": " + self.error_txt + "\n\t" + self.code_string[self.error_line][:-1] + "\n---")
+            print("---\nERROR on Line " + str(self.error_line) + ": " + self.error_txt +
+                "\n\t" + self.code_string[self.error_line][:-1] + "\n---")
 
     # Convert the sequence of numbers into a string with well spaced numbers
     def seq_string(self):
