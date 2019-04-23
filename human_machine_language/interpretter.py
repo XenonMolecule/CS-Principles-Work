@@ -24,6 +24,7 @@ with args.file as code_file:
 code = Code_Instance(code_string, args.verbose)
 print("\ninitial: " + code.seq_string())
 code.evaluate() # Run the code
-print("  final: " + code.seq_string() + "\n")
-code.print_summary() # Print the code summary
-print()
+if(not code.error):
+    print("  final: " + code.seq_string() + "\n")
+    code.print_summary() # Print the code summary
+    print()
