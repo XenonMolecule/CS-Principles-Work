@@ -1,7 +1,7 @@
 import argparse
 from code_instance import Code_Instance
 
-default_file_path = "/Users/MichaelRyan/Documents/GitHub/CS-Principles-Work/human_machine_language/challenges/sort.txt"
+default_file_path = "./challenges/sort.txt"
 
 # Add in the ability to specify verbose logging and file path
 parser = argparse.ArgumentParser()

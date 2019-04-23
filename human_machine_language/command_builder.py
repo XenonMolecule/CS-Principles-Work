@@ -13,7 +13,7 @@ class CodeBuilder(object):
     # Construct either one of the JUMP commands
     def build_jumps(self, text, params, line_num):
         # Check for IF to switch it to JUMPIF rather than JUMP
-        if(params[4] == "IF"):
+        if("IF" in params and params[4] == "IF"):
             return self.build_jumpif(text, params, line_num)
         else:
             return self.build_jump(text, params, line_num)
