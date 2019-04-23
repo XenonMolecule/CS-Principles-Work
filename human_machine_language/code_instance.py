@@ -51,8 +51,8 @@ class Code_Instance(object):
                 if(self.verbose):
                     print("---")
                     print(str(self.curr_line) + ": " + self.code_string[self.curr_line])
-                    self.print_seq()
-                    self.print_hands()
+                    print(self.seq_string())
+                    print(self.hand_hands())
 
             else:
                 print("---\nERROR: Line " + str(self.curr_line) + " is not in the program... did you forget to STOP?" + "\n---")
