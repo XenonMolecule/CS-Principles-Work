@@ -10,15 +10,15 @@ class Shift(Command):
         new_val = -1
         # Move proper hand in proper direction
         if(self.right_side):
-            if(self.to_right):
+            if(self.to_right):  # Move right hand right
                 code_instance.rpos += 1
-            else:
+            else:               # Move right hand left
                 code_instance.rpos -= 1
             new_val = code_instance.rpos
         else:
-            if(self.to_right):
+            if(self.to_right):  # Move left hand right
                 code_instance.lpos += 1
-            else:
+            else:               # Move left hand left
                 code_instance.lpos -= 1
             new_val = code_instance.lpos
         # Check if the new position of the moved hand is valid before continuing

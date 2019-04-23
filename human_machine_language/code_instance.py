@@ -36,7 +36,7 @@ class Code_Instance(object):
         self.swap_count = 0 # Count of how many swaps the code performs
         self.comp_count = 0 # Count of how many comparisons the code has run
 
-# Run the code instance to completion or runtime error
+    # Run the code instance to completion or runtime error
     def evaluate(self):
         # compile all of the code into the object types for calling
         self.compile()
